@@ -4,16 +4,17 @@ const hit = document.getElementById("hit")
 const stand = document.getElementById("stand")
 const restart = document.getElementById("restart")
 
-function createDeck() {
+  function createNewDeck() {
     const deck = []
-    suits.forEach(suit => {
-      values.forEach(value => {
-        deck.push(value + suit)
-      })
+    values.forEach(value => {
+        suits.forEach(suit => {
+            deck.push(value + suit)
+        })
     })
     return deck
   }
 
+  console.log(createNewDeck());
 
 
   
