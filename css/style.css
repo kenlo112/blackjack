@@ -1,7 +1,8 @@
 html {
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: green;
+    background:radial-gradient(circle at center,green, black);
+    height: 100vh;
     color: white;
 }
 
@@ -28,6 +29,14 @@ button {
     justify-content: center;
 }
 
+.cards {
+    height:180px;
+    width: 800px;
+    border: yellow 2px solid;
+    display: flex;
+    
+}
+
 .card {
     height: 150px;
     width: 120px;
@@ -36,6 +45,5 @@ button {
     background-color: white;
     color: black;
     font-size: 30px;
-    
 
 }
