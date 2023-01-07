@@ -3,11 +3,14 @@ const suits = ["♠", "♥", "♣", "♦"]
 let dealer = []
 let player = []
 let deck = []
+let playerHand = []
 
 const deal = document.getElementById("deal")
 deal.addEventListener("click", firstHand)
 
 const hit = document.getElementById("hit")
+hit.addEventListener("click", playerHit)
+
 const stand = document.getElementById("stand")
 const restart = document.getElementById("restart")
 const dealerCardContainer = document.getElementById("dealer")
@@ -58,11 +61,17 @@ function firstHand() {
     })
   }
 
-
 function disableEventListener() {
     deal.removeEventListener("click", firstHand)
   }
 deal.addEventListener("click", disableEventListener)
 
-
+function playerHit() {
+    const newCard = getRandomCard()
+    playerHand.push(newCard)
+    const cardEl = document.createElement("div");
+    cardEl.classList.add("card");
+    cardEl.innerText = newCard;
+    playerHandEl.appendChild(cardEl);
+}
 
