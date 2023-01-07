@@ -57,6 +57,9 @@ function firstHand() {
       cardEl.innerText = card
       playerHandEl.appendChild(cardEl)
   })
+  if (points(player) === 21) {
+    console.log("player win")
+  }
 }
 
 function disableEventListener() {
@@ -71,8 +74,35 @@ function playerHit() {
     cardEl.classList.add("card");
     cardEl.innerText = newCard;
     playerHandEl.appendChild(cardEl);
+
     //delete later
     console.log(player)
+
+    if (points(player) > 21) {
+      console.log("Bust!")
+    }
   }
 
+function points(hand) {
+  let total = 0
+  let aces = 0
+  hand.forEach(card => {
+    if (card[0] === "A") {
+      aces += 1
+    } else if (card[0] === "J" || card[0] === "Q" || card[0] === "K") {
+      total += 10
+    } else {
+      total += parseInt(card[0])
+    }
+  })
+
+  for (let i = 0; i < aces; i++) {
+    if (total + 11 <= 21) {
+      total += 11
+    } else {
+      total += 1
+    }
+  }
+  return total
+}
 
