@@ -94,10 +94,10 @@ function firstHand() {
   })
 }
 
-function disableEventListener() {
+function disableDeal() {
     deal.removeEventListener("click", firstHand)
   }
-deal.addEventListener("click", disableEventListener)
+deal.addEventListener("click", disableDeal)
 
 
 function playerHit() {
@@ -115,6 +115,12 @@ function playerHit() {
       message.innerHTML = "Player Bust!"
     }
   }
+
+  function disableHit() {
+    hit.removeEventListener("click", playerHit)
+    disableDeal()
+  }
+  stand.addEventListener("click", disableHit)
 
   function standDealer() {
     while (points(dealer) < 17) {
@@ -146,5 +152,7 @@ function restartGame() {
   playerHandEl.innerHTML = ""
   message.innerHTML = ""
   deal.addEventListener("click", firstHand);
-  deal.removeEventListener("click", disableEventListener);
+  deal.removeEventListener("click", disableDeal);
+  hit.addEventListener("click", playerHit)
+  stand.addEventListener("click", disableHit)
 }
