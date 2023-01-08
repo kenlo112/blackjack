@@ -2,6 +2,10 @@
 
 This is a simple blackjack game created by HTML, CSS and JavaScript.
 
+Click the link below to start the game
+
+https://pages.git.generalassemb.ly/kenlo112/blackjack/
+
 Play instruction:
 
 1. Click the "Deal" button to start the game.
