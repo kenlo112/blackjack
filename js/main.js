@@ -33,6 +33,34 @@ function getRandomCard() {
     return card
   }
 
+  function points(hand) {
+    let value = 0
+    let aces = 0
+    hand.forEach(card => {
+      if (card.length ===2){
+        if (card[0] === "A") {
+          aces += 1
+        } else if (card[0] === "J" || card[0] === "Q" || card [0] === "K") {
+          value += 10
+        } else {
+          value += Number(card[0])
+        }
+      } else {
+        value += 10
+      }
+    })
+  
+    for (let i = 0; i < aces; i++) {
+      if (value + 11 <= 21) {
+        value += 11
+      } else {
+        value += 1
+      }
+    }
+    return value
+  }
+  
+
 // take a look later
 const dealerHandEl = document.createElement("div")
 dealerHandEl.classList.add("cards")
@@ -58,7 +86,7 @@ function firstHand() {
       playerHandEl.appendChild(cardEl)
   })
   if (points(player) === 21) {
-    console.log("player win")
+    console.log("Blackjack")
   }
 }
 
@@ -66,6 +94,7 @@ function disableEventListener() {
     deal.removeEventListener("click", firstHand)
   }
 deal.addEventListener("click", disableEventListener)
+
 
 function playerHit() {
     const newCard = getRandomCard()
@@ -76,33 +105,12 @@ function playerHit() {
     playerHandEl.appendChild(cardEl);
 
     //delete later
-    console.log(player)
+    console.log(points(player))
 
     if (points(player) > 21) {
-      console.log("Bust!")
+      console.log("Bust")
     }
   }
 
-function points(hand) {
-  let total = 0
-  let aces = 0
-  hand.forEach(card => {
-    if (card[0] === "A") {
-      aces += 1
-    } else if (card[0] === "J" || card[0] === "Q" || card[0] === "K") {
-      total += 10
-    } else {
-      total += parseInt(card[0])
-    }
-  })
 
-  for (let i = 0; i < aces; i++) {
-    if (total + 11 <= 21) {
-      total += 11
-    } else {
-      total += 1
-    }
-  }
-  return total
-}
 
