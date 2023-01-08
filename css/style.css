@@ -53,12 +53,3 @@ button {
     text-transform: uppercase;
 }
 
-.back {
-    height: 150px;
-    width: 120px;
-    border: black 2px solid;
-    border-radius: 25px;
-    background-color: red;
-    color: red;
-    font-size: 30px;
-}
