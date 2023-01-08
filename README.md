@@ -28,11 +28,19 @@ Play instruction:
 pseudocode:
 
 Deck [] create 52 cards
+
 dealer [] giving out 2 random card out of 52 cards
+
 player [] giving out 2 random card out of 52 cards
+
 one card can only appear once
+
 A = 1 or 11
+
 J Q K = 10
+
 Button: Deal, Hit, Stand, Restat 
+
 Message for the winner
+
 Check Winner
