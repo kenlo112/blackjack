@@ -65,8 +65,6 @@ function getRandomCard() {
     return value
   }
   
-
-// take a look later
 const dealerHandEl = document.createElement("div")
 dealerHandEl.classList.add("cards")
 dealerCardContainer.appendChild(dealerHandEl)
@@ -107,9 +105,6 @@ function playerHit() {
     cardEl.classList.add("card");
     cardEl.innerText = newCard;
     playerHandEl.appendChild(cardEl);
-
-    //delete later
-    console.log(points(player))
 
     if (points(player) > 21) {
       message.innerHTML = "Player Bust!"
