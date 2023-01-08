@@ -18,6 +18,7 @@ const restart = document.getElementById("restart")
 restart.addEventListener("click", restartGame)
 
 const message = document.getElementById("message")
+
 const dealerCardContainer = document.getElementById("dealer")
 const playerCardContainer = document.getElementById("player")
 
@@ -42,7 +43,7 @@ function getRandomCard() {
     let value = 0
     let aces = 0
     hand.forEach(card => {
-      if (card.length ===2){
+      if (card.length === 2) {
         if (card[0] === "A") {
           aces += 1
         } else if (card[0] === "J" || card[0] === "Q" || card [0] === "K") {
@@ -78,7 +79,7 @@ function firstHand() {
   dealer.forEach(card => {
       const cardEl = document.createElement("div")
       cardEl.classList.add("card")
-      cardEl.innerText = card
+      cardEl.innerHTML = card
       dealerHandEl.appendChild(cardEl)
     if (points(dealer) === 21)
     message.innerHTML = "Dealer blackjack, Dealer Win"
@@ -103,7 +104,7 @@ function playerHit() {
     player.push(newCard)
     const cardEl = document.createElement("div");
     cardEl.classList.add("card");
-    cardEl.innerText = newCard;
+    cardEl.innerHTML = newCard;
     playerHandEl.appendChild(cardEl);
 
     if (points(player) > 21) {
@@ -123,7 +124,7 @@ function playerHit() {
       dealer.push(newCard);
       const cardEl = document.createElement("div")
       cardEl.classList.add("card")
-      cardEl.innerText = newCard
+      cardEl.innerHTML = newCard
       dealerHandEl.appendChild(cardEl)
     }
   
