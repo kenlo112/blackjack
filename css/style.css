@@ -45,5 +45,10 @@ button {
     background-color: white;
     color: black;
     font-size: 30px;
+}
 
+.message {
+    font-size: 100px;
+    text-decoration: underline;
+    text-transform: uppercase;
 }

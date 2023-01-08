@@ -12,7 +12,12 @@ const hit = document.getElementById("hit")
 hit.addEventListener("click", playerHit)
 
 const stand = document.getElementById("stand")
+stand.addEventListener("click", standDealer);
+
 const restart = document.getElementById("restart")
+restart.addEventListener("click", restartGame)
+
+const message = document.getElementById("message")
 const dealerCardContainer = document.getElementById("dealer")
 const playerCardContainer = document.getElementById("player")
 
@@ -77,6 +82,8 @@ function firstHand() {
       cardEl.classList.add("card")
       cardEl.innerText = card
       dealerHandEl.appendChild(cardEl)
+    if (points(dealer) === 21)
+    message.innerHTML = "Dealer blackjack, Dealer Win"
   })
   player = [getRandomCard(), getRandomCard()];
   player.forEach(card => {
@@ -85,9 +92,6 @@ function firstHand() {
       cardEl.innerText = card
       playerHandEl.appendChild(cardEl)
   })
-  if (points(player) === 21) {
-    console.log("Blackjack")
-  }
 }
 
 function disableEventListener() {
@@ -108,9 +112,39 @@ function playerHit() {
     console.log(points(player))
 
     if (points(player) > 21) {
-      console.log("Bust")
+      message.innerHTML = "Player Bust!"
     }
   }
 
+  function standDealer() {
+    while (points(dealer) < 17) {
+      const newCard = getRandomCard()
+      dealer.push(newCard);
+      const cardEl = document.createElement("div")
+      cardEl.classList.add("card")
+      cardEl.innerText = newCard
+      dealerHandEl.appendChild(cardEl)
+    }
+  
+    if (points(dealer) > 21) {
+      message.innerHTML = "Dealer busts Player win!"
+    } else if (points(player) > points(dealer)) {
+      message.innerHTML = "Player Win!"
+    } else if (points(player) < points(dealer)) {
+      message.innerHTML = "Dealer Win!"
+    } else {
+      message.innerHTML = "Tie!"
+    }
+  }
 
-
+function restartGame() {
+  dealer = []
+  player = []
+  deck = createNewDeck()
+  playerHand = []
+  dealerHandEl.innerHTML = ""
+  playerHandEl.innerHTML = ""
+  message.innerHTML = ""
+  deal.addEventListener("click", firstHand);
+  deal.removeEventListener("click", disableEventListener);
+}
