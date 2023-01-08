@@ -25,3 +25,14 @@ Play instruction:
 ![螢幕截圖 2023-01-07 下午9 31 29](https://media.git.generalassemb.ly/user/46726/files/60f6c10b-4ed0-4e1d-a895-61923e8a5b4c)
 ![螢幕截圖 2023-01-07 下午9 36 00](https://media.git.generalassemb.ly/user/46726/files/03724d70-58f8-46f1-adae-2e4d5258561a)
 
+pseudocode:
+
+Deck [] create 52 cards
+dealer [] giving out 2 random card out of 52 cards
+player [] giving out 2 random card out of 52 cards
+one card can only appear once
+A = 1 or 11
+J Q K = 10
+Button: Deal, Hit, Stand, Restat 
+Message for the winner
+Check Winner
