@@ -21,3 +21,7 @@ Play instruction:
 8. If both the dealer and you have the same point total, the game will end in a tie.
 
 9. You can click the "Restart" button at any time to start a new game.
+
+![螢幕截圖 2023-01-07 下午9 31 29](https://media.git.generalassemb.ly/user/46726/files/60f6c10b-4ed0-4e1d-a895-61923e8a5b4c)
+![螢幕截圖 2023-01-07 下午9 36 00](https://media.git.generalassemb.ly/user/46726/files/03724d70-58f8-46f1-adae-2e4d5258561a)
+
